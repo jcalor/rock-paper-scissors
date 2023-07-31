@@ -1,26 +1,24 @@
 function getComputerChoice(){
     let randomNumber = Math.floor(Math.random() * 3)
     if (randomNumber === 0){
-        return "Rock"
+        return "rock"
     } else if (randomNumber === 1){
-        return "Paper"
+        return "paper"
     } else {
-        return "Scissors"
+        return "scissors"
     }
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toUpperCase()
-    computerSelection = computerSelection.toUpperCase()
 
     if (playerSelection == computerSelection){
         return "Game tied!"
 
-    } else if ((playerSelection === "ROCK" && computerSelection === "PAPER") || (playerSelection === "PAPER" && computerSelection === "SCISSORS") || (playerSelection === "SCISSORS" && computerSelection === "ROCK")) {
+    } else if ((playerSelection.toLowerCase() && computerSelection === "paper") || (playerSelection.toLowerCase() && computerSelection === "scissors") || (playerSelection.toLowerCase() && computerSelection === "rock")) {
 
         return `You lose! ${computerSelection} beats ${playerSelection}.`
 
-    } else if ((playerSelection === "ROCK" && computerSelection === "SCISSORS") || (playerSelection === "SCISSORS" && computerSelection === "PAPER") || (playerSelection === "PAPER" && computerSelection === "ROCK")){
+    } else if ((playerSelection.toLowerCase() && computerSelection === "scissors") || (playerSelection.toLowerCase() && computerSelection === "paper") || (playerSelection.toLowerCase() && computerSelection === "rock")){
 
         return `Congratulations! ${playerSelection} beated ${computerSelection}!`
 
@@ -33,11 +31,9 @@ function playRound(playerSelection, computerSelection) {
 
   function game(){
     for (let i = 0; i < 5; i++) {
-        getComputerChoice()
         const playerSelection = prompt("What is your selection? (make sure to open the console to see the result!)");
-        console.log(playRound(playerSelection, computerSelection));
+        console.log(playRound(playerSelection, getComputerChoice()));
     }
   }
    
-  const computerSelection = getComputerChoice();
   game()
