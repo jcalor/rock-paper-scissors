@@ -9,18 +9,26 @@ function getComputerChoice(){
     }
 }
 
+
+
 function playRound(playerSelection, computerSelection) {
+    let userPoints = 0
+    let computerPoints = 0
 
     if (playerSelection == computerSelection){
         return "Game tied!"
 
     } else if ((playerSelection.toLowerCase() && computerSelection === "paper") || (playerSelection.toLowerCase() && computerSelection === "scissors") || (playerSelection.toLowerCase() && computerSelection === "rock")) {
 
-        return `You lose! ${computerSelection} beats ${playerSelection}.`
+        computerPoints = computerPoints + 1
+        console.log(getComputerChoice())
+        return `You lose! You have ${userPoints} points and the computer has ${computerPoints} points.`
+        
 
     } else if ((playerSelection.toLowerCase() && computerSelection === "scissors") || (playerSelection.toLowerCase() && computerSelection === "paper") || (playerSelection.toLowerCase() && computerSelection === "rock")){
 
-        return `Congratulations! ${playerSelection} beated ${computerSelection}!`
+        userPoints = userPoints + 1
+        return `Congratulations! You have ${userPoints} points and the computer has ${computerPoints} points.`
 
     } else {
 
@@ -29,11 +37,11 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 
-  function game(){
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("What is your selection? (make sure to open the console to see the result!)");
-        console.log(playRound(playerSelection, getComputerChoice()));
-    }
-  }
-   
-  game()
+  const buttons = document.querySelectorAll('#btn')
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.innerHTML
+        document.querySelector(".sel").innerHTML = "Your selection: " + button.innerHTML
+        document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
+   })
+  })
