@@ -10,38 +10,29 @@ function getComputerChoice(){
 }
 
 
-
 function playRound(playerSelection, computerSelection) {
-    let userPoints = 0
-    let computerPoints = 0
+    console.log("Computer selection: " + getComputerChoice())
+    
+    if (playerSelection === computerSelection){
+        return 'Game tied!'
 
-    if (playerSelection == computerSelection){
-        return "Game tied!"
+    } else if ((playerSelection && computerSelection === "paper") || (playerSelection && computerSelection === "scissors") || (playerSelection && computerSelection === "rock")) {
 
-    } else if ((playerSelection.toLowerCase() && computerSelection === "paper") || (playerSelection.toLowerCase() && computerSelection === "scissors") || (playerSelection.toLowerCase() && computerSelection === "rock")) {
+        return `You lose!`
 
-        computerPoints = computerPoints + 1
-        console.log(getComputerChoice())
-        return `You lose! You have ${userPoints} points and the computer has ${computerPoints} points.`
-        
+    } else if ((playerSelection && computerSelection === "scissors") || (playerSelection && computerSelection === "paper") || (playerSelection && computerSelection === "rock")){
 
-    } else if ((playerSelection.toLowerCase() && computerSelection === "scissors") || (playerSelection.toLowerCase() && computerSelection === "paper") || (playerSelection.toLowerCase() && computerSelection === "rock")){
-
-        userPoints = userPoints + 1
-        return `Congratulations! You have ${userPoints} points and the computer has ${computerPoints} points.`
-
-    } else {
-
-        return "Only type rock, paper os scissors!"
+        return `Congratulations!`
 
     }
   }
 
-  const buttons = document.querySelectorAll('#btn')
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        let playerSelection = button.innerHTML
-        document.querySelector(".sel").innerHTML = "Your selection: " + button.innerHTML
+  const buttons = document.querySelectorAll('.btn')
+  buttons.forEach(e => {
+    e.addEventListener('click',() => {
+        let playerSelection = e.id
+        document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
         document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
-   })
+    })
   })
+  
