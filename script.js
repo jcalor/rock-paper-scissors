@@ -16,11 +16,11 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection){
         return 'Game tied!'
 
-    } else if ((playerSelection && computerSelection === "paper") || (playerSelection && computerSelection === "scissors") || (playerSelection && computerSelection === "rock")) {
+    } else if ((playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
 
         return `You lose!`
 
-    } else if ((playerSelection && computerSelection === "scissors") || (playerSelection && computerSelection === "paper") || (playerSelection && computerSelection === "rock")){
+    } else if ((playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "rock" && computerSelection === "scissors")) {
 
         return `Congratulations!`
 
@@ -34,5 +34,4 @@ function playRound(playerSelection, computerSelection) {
         document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
         document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
     })
-  })
-  
+  })  
