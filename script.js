@@ -11,27 +11,34 @@ function getComputerChoice(){
 
 
 function playRound(playerSelection, computerSelection) {
-    console.log("Computer selection: " + getComputerChoice())
-    
+    console.log(computerSelection)
     if (playerSelection === computerSelection){
-        return 'Game tied!'
+
+        return `Game tied! You have ${playerPoints} points and the computer has ${computerPoints} points`
 
     } else if ((playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
 
-        return `You lose!`
+        computerPoints = computerPoints + 1
+        return `You lose! You have ${playerPoints} points and the computer has ${computerPoints} points`
 
     } else if ((playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "rock" && computerSelection === "scissors")) {
 
-        return `Congratulations!`
+        playerPoints = playerPoints + 1
+        return `Congratulations! You have ${playerPoints} points and the computer has ${computerPoints} points`
 
     }
   }
 
   const buttons = document.querySelectorAll('.btn')
+  let playerPoints = 0
+  let computerPoints = 0
   buttons.forEach(e => {
     e.addEventListener('click',() => {
         let playerSelection = e.id
         document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
         document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
+        if (playerPoints === 5 || computerPoints === 5) {
+            e.removeEventListener('click')
+        }
     })
   })  
