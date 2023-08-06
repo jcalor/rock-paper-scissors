@@ -40,7 +40,14 @@ function playRound(playerSelection, computerSelection) {
         document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
         document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
         if (playerPoints === 5 || computerPoints === 5){
-            document.querySelector('.count'). innerHTML = "Winner is "
+            let winner = () => {
+                if (playerPoints === 5){
+                    return "player"
+                } else if (computerPoints === 5){
+                    return "computer"
+                }
+            }
+            document.querySelector('.count'). innerHTML = "Winner is " + winner()
             return
         }
     })
