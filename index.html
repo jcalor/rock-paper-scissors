@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Rock, paper and scissors game</title>
 </head>
 <body>
     <h1>Make your selection pressing on the following buttons:</h1>
-    <button id="rock" class="btn">Rock</button>
-    <button id="paper" class="btn">Paper</button>
-    <button id="scissors" class="btn">Scissors</button>
+    <div class="buttons">
+        <button id="rock" class="btn">Rock</button>
+        <button id="paper" class="btn">Paper</button>
+        <button id="scissors" class="btn">Scissors</button>
+        <button id="reset" onclick="window.location.reload();">Reset</button>
+    </div> 
     <div class="results">
         <p class="sel"></p>
         <p class="winner"></p>
         <p class="decission"></p>
     </div>
+
     
     
 </body>

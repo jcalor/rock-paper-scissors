@@ -34,6 +34,7 @@ function playRound(playerSelection, computerSelection) { // Compares playerSelec
   let playerPoints = 0
   let computerPoints = 0
   
+  document.querySelector('.sel').innerHTML = "Your selection: None"
   buttons.forEach(e => {
     e.addEventListener('click',function event() { // Runs the round when you press the button
         if (playerPoints < 5 && computerPoints < 5){
@@ -53,4 +54,4 @@ function playRound(playerSelection, computerSelection) { // Compares playerSelec
             }
         }
     })
-  })  
+  })

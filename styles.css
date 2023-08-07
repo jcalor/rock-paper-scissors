@@ -1,0 +1,103 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para los botones */
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+  #rock {
+    background-color: #f44336;
+    color: white;
+  }
+
+  #rock:hover {
+    background-color: #e91809;
+  }
+  
+  #paper {
+    background-color: #2196F3;
+    color: white;
+  }
+
+  #paper:hover {
+    background-color: #0e83e3;
+  }
+  
+  #scissors {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  #scissors:hover{
+    background-color: #148a18;
+  }
+
+  #reset {
+    background-color: #d7d019;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  #reset:hover{
+    background-color: #b3ae1b;
+  }
+
+
+  .btn {
+    border-radius: 5px;
+    border: none;
+  }
+
+  
+  /* Estilos para los resultados */
+  .results {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .results p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el mensaje de resultado */
+  .winner {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Estilos para el mensaje de selección */
+  .sel {
+    font-size: 20px;
+  }
+  
+  /* Estilos para el mensaje de decisión */
+  .decission {
+    font-size: 20px;
+  }
+  
