@@ -10,7 +10,7 @@ function getComputerChoice(){
 }
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) { // Compares playerSelection and computerSelection to decide who wins
     console.log(computerSelection)
     if (playerSelection === computerSelection){
         
@@ -35,12 +35,12 @@ function playRound(playerSelection, computerSelection) {
   let computerPoints = 0
   
   buttons.forEach(e => {
-    e.addEventListener('click',function event() {
+    e.addEventListener('click',function event() { // Runs the round when you press the button
         if (playerPoints < 5 && computerPoints < 5){
             let playerSelection = e.id
             document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
             document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
-            if (playerPoints === 5 || computerPoints === 5) {
+            if (playerPoints === 5 || computerPoints === 5) { // Declares a winner after 5 rounds
                 let winner = () => {
                     if (playerPoints === 5){
                         return "Player"
@@ -49,9 +49,8 @@ function playRound(playerSelection, computerSelection) {
                     }
                 }
                 document.querySelector('.sel').innerHTML = ""
-                
                 document.querySelector('.winner').innerHTML = winner() + " wins!"
-                            }
+            }
         }
     })
   })  
