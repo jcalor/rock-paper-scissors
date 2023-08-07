@@ -35,20 +35,23 @@ function playRound(playerSelection, computerSelection) {
   let computerPoints = 0
   
   buttons.forEach(e => {
-    e.addEventListener('click',() => {
-        let playerSelection = e.id
-        document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
-        document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
-        if (playerPoints === 5 || computerPoints === 5){
-            let winner = () => {
-                if (playerPoints === 5){
-                    return "player"
-                } else if (computerPoints === 5){
-                    return "computer"
+    e.addEventListener('click',function event() {
+        if (playerPoints < 5 && computerPoints < 5){
+            let playerSelection = e.id
+            document.querySelector('.sel').innerHTML = "Your selection: " + playerSelection
+            document.querySelector('.decission').innerHTML = playRound(playerSelection, getComputerChoice())
+            if (playerPoints === 5 || computerPoints === 5) {
+                let winner = () => {
+                    if (playerPoints === 5){
+                        return "Player"
+                    } else if (computerPoints === 5){
+                        return "Computer"
+                    }
                 }
-            }
-            document.querySelector('.count'). innerHTML = "Winner is " + winner()
-            return
+                document.querySelector('.sel').innerHTML = ""
+                
+                document.querySelector('.winner').innerHTML = winner() + " wins!"
+                            }
         }
     })
   })  
